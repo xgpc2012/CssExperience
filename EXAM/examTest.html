@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/main.css">
+    <!--<link rel="stylesheet" href="../BIZ-WF-COMMON/mdialog2.css">-->
+    <link rel="stylesheet" href="css/exam.css">
+    <!--<script src="../BIZ-WF-COMMON/mdialog2.js"></script>-->
+    <title>在线考试(首页)</title>
+    <style>
+        @media screen and (min-width: 321px) and (max-width: 361px) {
+            html {
+                font-size: 15px
+            }
+        }
+    </style>
+</head>
+<body class="bg-question">
+<div class="header box" style="background-color: inherit">
+    <div class="pad-l93 pad-bt068 w-4" onclick="UmsApi.page.forwardBizPageByRelativeUrl('index.html')">
+        <div class="icon-left2"></div>
+    </div>
+    <div class="box f1">
+
+    </div>
+    <div class="pad-r93">
+    </div>
+</div>
+<div class="main_content">
+    <!--答题进度条-->
+    <div class="pad-t18 box">
+        <div class="box h-center">
+            <div>
+                <div class="correctQuestions"></div>
+            </div>
+            <div class="slice0" id="slice">
+
+            </div>
+            <div class="box progress-line v-c">
+                <div class="p0" id="progress">
+
+                </div>
+                <div class="deer">
+
+                </div>
+                <div class="leaf leaf1">
+
+                </div>
+                <div class="integration" id="integration"></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="pad-lr15 mar-t16">
+        <div class="relative" id="q-list">
+
+        </div>
+    </div>
+</div>
+<script id="qitem" type="text/html">
+    {{each questionInfos as val i}}
+    <div class="questionBox  bg-w {{i==0?'topQ top':i==1?'middle middleQ':i==2?'bottom bottomQ':'bottom bottomQ nextQ'}}">
+        <div class="pad-lr125">
+            <div class="box qtitle">
+                <div>
+                    <div class="icon-question"></div>
+                </div>
+                <div class="question pad-l05 f1">
+                    <p class="fw800">
+                        {{if val.questionType==1}}
+                        <span>【多选】</span>
+                        {{else}}
+                        【单选】
+                        {{/if}}
+                        {{val.questionContent}}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="optionBox" data-answer="{{val.questionAnswer}}" data-type="{{val.questionType}}">
+            {{each val.options as op j}}
+            {{if j==0}}
+            <div class="box v-c optionLine">
+                {{else}}
+                <div class="box mar-t15 optionLine">
+                    {{/if}}
+                    <div class="f1 lh1-3">{{op}}</div>
+                    {{if val.questionType==1}}
+                    <div class="icon-size13 option1 icon-uncheck" data-index="{{j}}"></div>
+                    {{else}}
+                    <div class="icon-size13 option icon-uncheck" data-index="{{j}}"></div>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </div>
+            <div class="pad-lr31 mar-t18">
+                {{if val.questionType==1||val.questionType==0}}
+                <div class="pad-bt05 bg-2d t-w tx-c next-btn confirm">
+                    确认选项
+                </div>
+                {{else}}
+                <div style="min-height: 2.25rem;">
+                    <div class="pad-bt05 bg-2d t-w tx-c next-btn hide">
+                        下一题
+                    </div>
+                </div>
+                {{/if}}
+            </div>
+            <div class="pad-lr125 mar-t125 pad-bt015">
+                <div style="height: 1rem;">
+                    <p class="fz93 t-60 correct_answer"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/template.js"></script>
+<script src="index.js"></script>
+<script>
+    $(document).ready(function () {
+
+        showQuestionList(testData);
+        document.addEventListener("deviceready", function (event) {
+            transParam = JSON.parse(JSON.stringify(event.eventParam)).param;
+            eid = transParam["eid"];
+            ccid = transParam["ccid"];
+            estatus = transParam["estatus"];
+            if (estatus == 1) {
+                $(".leaf").removeClass("leaf1").addClass("leaf2");
+            }
+            getQuestionList(transParam["eid"]);
+        })
+    })
+
+    //单选题的选项点击
+    $qlist.on("click", ".optionLine", function () {
+        var $this = $(this).find(".option");
+        var oindex = $this.data("index"),
+                op = aArr[oindex];
+        if ($this.hasClass("icon-uncheck")) {
+            $this.parents(".optionBox").find(".option")
+                    .removeClass("icon-check").addClass("icon-uncheck");
+            $this.removeClass("icon-uncheck").addClass("icon-check");
+            mArr = [op];
+            mArr = unique(mArr.sort());
+        } else {
+            $this.removeClass("icon-check").addClass("icon-uncheck");
+            mArr = removeByValue(mArr, op);
+        }
+    })
+
+    //多选题的选项点击
+    $qlist.on("click", ".optionLine", function () {
+        var $this = $(this).find(".option1");
+        var oindex = $this.data("index"),
+                op = aArr[oindex];
+        if ($this.hasClass("icon-uncheck")) {
+            $this.removeClass("icon-uncheck").addClass("icon-check");
+            mArr.push(op);
+            mArr = unique(mArr.sort());
+        } else {
+            $this.removeClass("icon-check").addClass("icon-uncheck");
+            mArr = removeByValue(mArr, op);
+        }
+    })
+
+    $qlist.on("click", ".topQ .next-btn", function () {
+        var txt = $(this).text().trim();
+        if (txt == "下一题") {
+            //单选失败后点击下一题
+            switchQuestion();
+        } else if (txt == "确认选项") {
+            var $parents = $(this).parents(".questionBox");
+            var correctAnswer = $parents.find(".optionBox").data("answer"),
+                    qtype = $parents.find(".optionBox").data("type")
+            answer1 = mArr.join("|");
+            if (answer1 == correctAnswer) {
+                if (cnum < 8) {
+                    $(".deer").addClass("run-deer");
+                    setTimeout(function () {
+                        $(".deer").removeClass("run-deer");
+                    }, 1000);
+                    cnum++;
+                    $progress.switchClass("p" + (cnum - 1), "p" + cnum, 500, "easeInOutQuad");
+                    $slice.attr("class", "slice" + cnum);
+                }
+                switchQuestion();
+            } else {
+                if (qtype == 1) {
+                    var cIndexArr = getCorrectIndex(mArr, correctAnswer);
+                    for (var i = 0; i < cIndexArr.length; i++) {
+                        var ci = cIndexArr[i];
+                        $parents.find(".option1").eq(ci).removeClass("icon-check")
+                                .addClass("icon-correct");
+                    }
+                    $parents.find(".icon-check").parent()
+                            .addClass("t-90");
+                    $parents.find(".icon-check").removeClass("icon-check")
+                            .addClass("icon-error");
+                    $parents.find(".option1").removeClass("option1");
+                } else {
+                    $parents.find(".option").eq(getCorrectIndex("", correctAnswer))
+                            .addClass("icon-correct");
+                    $parents.find(".icon-check").parent()
+                            .addClass("t-90");
+                    $parents.find(".icon-check").removeClass("icon-check")
+                            .addClass("icon-error");
+                    $parents.find(".option").removeClass("option");
+                }
+                $parents.find(".next-btn").text("下一题");
+                $parents.find(".correct_answer").text("正确答案:" + correctAnswer.split("|").join(","));
+            }
+        } else {
+            //其余情况待补充
+        }
+    })
+</script>
+</body>
+</html>

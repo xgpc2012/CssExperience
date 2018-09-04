@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../BIZ-WF-COMMON/mdialog2.css">
+    <link rel="stylesheet" href="css/exam.css">
+    <script src="../BIZ-WF-COMMON/mdialog2.js"></script>
+    <title>在线考试(首页)</title>
+</head>
+<body class="bg-f1">
+<div style="position:relative;">
+    <header class="header-top">
+        <div class="pad-l93 pad-bt068 w-4" onclick="backToRootVC()">
+            <div class="icon-left2"></div>
+        </div>
+        <div onclick="UmsApi.page.forwardBizPageByAbsoluteUrl('BIZ-WF2-LEARNINGGARDEN','index.html')">在线学习</div>
+        <div>在线考试</div>
+        <div onclick="UmsApi.page.forwardBizPageByAbsoluteUrl('BIZ-WF2-LEARNINGGARDEN','learningerror.html');">
+            <img src="img/sousuo-w.png">
+        </div>
+    </header>
+</div>
+<div class="main_content">
+    <div id="wrapper">
+        <div id="scroller">
+            <div id="pullDown" style="padding-left: 35%;height: 0;">
+                <!--<span class="pullDownIcon"></span><span class="pullDownLabel">下拉刷新...</span>-->
+            </div>
+            <div class="exam-list relative" id="exam-list">
+
+                <!--<div class="exam-item box bg-w mar-t625" data-id="{{val.exam_id}}" data-type="{{val.credits_config_id}}"-->
+                <!--data-estatus="{{val.user_exam_status}}">-->
+                    <!--<div class="f1">-->
+                        <!--<div class="f1 fz93 box v-c">-->
+                            <!--<div class="icon-diamond mar-r625"></div>-->
+                <!--<p>一套考试题</p>-->
+                        <!--</div>-->
+                        <!--<div class="pad-l11 fz875 mar-t625">-->
+                <!--状态:<span class='t-f2'>未通过</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--<div class="pad-bt075">-->
+                        <!--<div class="bg-2d exam-btn t-w">-->
+                            <!--去考试-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            </div>
+            <div id="pullUp" style="padding-left: 35%;display: none;">
+                <span class="pullUpIcon"></span>
+                <span class="pullUpLabel">上拉加载更多...</span>
+            </div>
+        </div>
+    </div>
+    <div id="noresult" class="hide">
+        <div class="noresult">
+            <img src="../BIZ-WF-COMMON/img/icon-norecord.png">
+            <p>当前暂无记录</p>
+        </div>
+    </div>
+</div>
+<!--考试列表模板-->
+<script id="eitem" type="text/html">
+    {{each content as val i}}
+    <div class="exam-item box bg-w mar-t625" data-id="{{val.exam_id}}" data-type="{{val.credits_config_id}}"
+         data-estatus="{{val.user_exam_status}}">
+        <div class="f1">
+            <div class="f1 fz93 box v-c">
+                <div class="icon-diamond mar-r625"></div>
+                <p>{{val.exam_name}}</p>
+            </div>
+            <div class="pad-l11 fz875 mar-t625">
+                状态:
+                {{if val.user_exam_status=="0"}}
+                <span class='t-f2'>未考</span>
+                {{else}}
+                已考
+                {{/if}}
+            </div>
+        </div>
+        <div class="pad-bt075">
+            {{if val.user_exam_status=="0"}}
+            <div class="bg-2d exam-btn t-w">
+                去考试
+            </div>
+            {{else}}
+            <div class="b-a b-2d t-2d exam-btn">
+                再试试
+            </div>
+            {{/if}}
+        </div>
+    </div>
+    {{/each}}
+</script>
+<script src="../BIZ-WF-COMMON/js/jquery.min.js"></script>
+<script src="../BIZ-WF-COMMON/js/common.js"></script>
+<script src="../BIZ-WF-COMMON/js/zepto.min.js"></script>
+<script src="js/template.js"></script>
+<script src="js/iscroll.js"></script>
+<script src="js/pull.js"></script>
+<script src="index.js"></script>
+<script>
+    $(document).ready(function () {
+        dialog = new TipBox({
+            type: 'load',
+            str: "努力加载中...",
+            setTime: 30000,
+            hasMask: true
+        });
+        //showExamList({"content":[0,1,2,3,4,5,6,7,8]});
+        document.addEventListener("deviceready", function () {
+            getExamList("0");
+        })
+    });
+
+    $("#exam-list").on("click", ".exam-item", function () {
+        var eid = $(this).data("id");
+        var ccid = $(this).data("type");
+        var estatus = $(this).data("estatus");
+        var json = {
+            "eid": eid,
+            "ccid": ccid,
+            "estatus": estatus
+        }
+        UmsApi.page.forwardBizPageByRelativeUrl('examTest.html', json);
+    })
+</script>
+</body>
+</html>

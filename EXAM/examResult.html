@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../BIZ-WF-COMMON/mdialog2.css">
+    <link rel="stylesheet" href="css/exam.css">
+    <script src="../BIZ-WF-COMMON/mdialog2.js"></script>
+    <title>在线考试(考试结果)</title>
+</head>
+<body class="bg-2d">
+<div id="mask"></div>
+<div class="header box t-w">
+    <div class="pad-l93 pad-bt068 w-4" onclick="UmsApi.page.forwardBizPageByRelativeUrl('index.html')">
+        <div class="icon-left2"></div>
+    </div>
+    <div class="f1 fz1-125">
+        在线考试
+    </div>
+    <div class="pad-r93 w-4">
+    </div>
+</div>
+<div class="main_content">
+    <div class="box h-c">
+        <div class="exam-result-img">
+            <div class="pad-t11 tx-c">
+                <p class="fz875">恭喜您答对了<span class="t-f2 pad-lr025">8</span>道题</p>
+                <p class="fw600 mar-t15">获得<span class="fz2-5 t-f7 pad-lr025">1000</span>银杏豆</p>
+                <div class="pad-lr23 mar-t18" id="exam">
+                    <div class="pad-bt05 bg-2d t-w tx-c next-btn">
+                        重新挑战
+                    </div>
+                </div>
+                <div class="pad-lr23 mar-t18"
+                     onclick="UmsApi.page.forwardBizPageByAbsoluteUrl('BIZ-WF2-INTEGRALCASHIER','index.html');">
+                    <div class="pad-bt05 t-2d b-a b-2d tx-c next-btn">
+                        银杏商城
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tx-c box v-c mar-t1">
+        <div class="f1 box h-r">
+            <div class="s-line"></div>
+        </div>
+        <div class="box pad-lr0625" style="z-index: 1001">
+            <p class="t-w">赶紧去兑换吧</p>
+        </div>
+        <div class="f1 box">
+            <div class="s-line"></div>
+        </div>
+    </div>
+    <div class="pad-lr23 mar-t15 box pad-b1">
+        <div class="f1 tx-c" style="z-index: 1001">
+            <div class="box">
+                <div class="bg-circle sucai1 h-center"></div>
+            </div>
+            <div class="box f1">
+                <div class="integral-frame bg-f7">手机券</div>
+            </div>
+        </div>
+        <div class="f1 tx-c" style="z-index: 1001">
+            <div class="box f1">
+                <div class="bg-circle sucai2 h-center"></div>
+            </div>
+            <div class="box f1">
+                <div class="integral-frame bg-83">电影票</div>
+            </div>
+        </div>
+        <div class="f1 tx-c" style="z-index: 1001">
+            <div class="box f1">
+                <div class="bg-circle sucai3 h-center"></div>
+            </div>
+            <div class="box f1">
+                <div class="integral-frame bg-a3">责任险</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="../BIZ-WF-COMMON/js/umsapi.js"></script>
+<script src="../BIZ-WF-COMMON/js/jquery.min.js"></script>
+<script>
+    document.addEventListener("deviceready", function (event) {
+        transParam = JSON.parse(JSON.stringify(event.eventParam)).param;
+        var json = {
+            "eid": transParam["eid"],
+            "ccid": transParam["ccid"],
+            "estatus": "1"
+        }
+        $("#exam").on("click", function () {
+            UmsApi.page.forwardBizPageByRelativeUrl('examTest.html', json);
+        })
+    })
+</script>
+</body>
+</html>

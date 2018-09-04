@@ -1,0 +1,360 @@
+/*移动端样式库(未修改默认字体大小)*/
+
+/*reset初始化*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font-family: PingFangSC-Regular;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+/*设置页面长按不可复制粘贴*/
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent; /*解决ios高亮闪烁问题*/
+}
+[contenteditable = "true"], input, textarea {
+    -webkit-user-select: auto!important;
+    -khtml-user-select: auto!important;
+    -moz-user-select: auto!important;
+    -ms-user-select: auto!important;
+    -o-user-select: auto!important;
+    user-select: auto!important;
+}
+
+/*input-placeholder初始化*/
+input::-webkit-input-placeholder {
+    color: #CDD5D9;
+}
+
+/*input初始化*/
+input {
+    outline: 0;
+    border: 0;
+}
+
+/*媒体查询(兼容低分辨率设备)*/
+@media screen and (max-width: 320px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+/*click事件点击背景*/
+div, a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/*边框类*/
+
+.b1 {
+    /*测试专用边框*/
+    border: 1px solid red;
+}
+
+.b-a {
+    border: 1px solid black;
+}
+
+.b-t {
+    border-top: 1px solid black;
+}
+
+.b-b {
+    border-bottom: 1px solid black;
+}
+
+.b-r {
+    border-right: 1px solid black;
+}
+
+.b-a {
+    border: 1px solid black;
+}
+
+/*背景色类*/
+.bg-f2 {
+    background-color: #F2F5F9;
+}
+
+.bg-2d {
+    background-color: #2DBCFE;
+}
+
+.bg-w {
+    background-color: white;
+}
+
+.b-e0 {
+    border-color: #E0E3EA;
+}
+
+/*常用样式*/
+
+/*超出隐藏*/
+.o-h {
+    overflow: hidden;
+}
+
+/*不换行*/
+.nowrap {
+    white-space: nowrap;
+}
+
+/*相对定位*/
+.relative {
+    position: relative;
+}
+
+/*绝对定位*/
+.absolute {
+    position: absolute;
+}
+
+/*元素隐藏*/
+.hide {
+    display: none !important;
+}
+
+/*盒子模型规范*/
+.bor-box {
+    box-sizing: border-box;
+}
+
+/*块元素行内呈现*/
+.in-b {
+    display: inline-block;
+}
+
+/*盒子模型*/
+.box {
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    flex-flow: row;
+}
+
+/*目前兼容性不全,以后可能兼容*/
+.h-c {
+    justify-content: center;
+}
+
+.h-r {
+    justify-content: flex-end;
+}
+
+.h-sb {
+    justify-content: space-between;
+}
+
+.v-c {
+    align-items: center;
+}
+
+.v-b {
+    align-items: flex-end;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+}
+
+.middle {
+    flex-direction: column;
+}
+
+/*兼容性好 用于需要定位的子元素*/
+.h-center {
+    margin: 0 auto;
+}
+
+/*垂直居中需父元素flex布局*/
+.v-center {
+    margin: auto 0;
+}
+
+.a-center{
+    margin: auto;
+}
+
+/*等分布局*/
+.f1 {
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+}
+
+.w100 {
+    width: 100%;
+}
+
+.h100 {
+    height: 100%;
+}
+
+/*字体排版*/
+.tx-l {
+    text-align: left;
+}
+
+.tx-c {
+    text-align: center;
+}
+
+.tx-r {
+    text-align: right;
+}
+
+/*页面header*/
+.header {
+    height: 2.75rem;
+    line-height: 2.75rem;
+    font-size: 1.125rem;
+    position: fixed;
+    background-color: #2DBCFE;
+    color: white;
+    text-align: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+/*返回按钮*/
+.icon-left {
+    /*background-image: url("");*/
+    height: 1.375rem;
+    width: 1.375rem;
+    background-size: 100% 100%;
+}
+
+/*用于顶部栏左右两侧块*/
+.w-4 {
+    width: 4rem;
+}
+
+/*主内容部分*/
+.main_content {
+    padding-top: 2.75rem;
+}
+
+/*字体大小*/
+.fz075 {
+    /*24px*/
+    font-size: .75rem;
+}
+
+.fz0875 {
+    /*28px*/
+    font-size: .875rem;
+}
+
+.fz093 {
+    /*30px*/
+    font-size: .9375rem;
+}
+
+.fz1 {
+    /*32px*/
+    font-size: 1rem;
+}
+
+/*常用内边距*/
+.pad-l093 {
+    padding-left: .9375rem;
+}
+
+.pad-r093 {
+    padding-right: .9375rem;
+}
+
+.pad-lr093 {
+    padding-left: .9375rem;
+    padding-right: .9375rem;
+}
+
+.pad-lr1125 {
+    padding-left: 1.125rem;
+    padding-right: 1.125rem;
+}
+
+.pad-lr125 {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+.pad-bt068 {
+    padding-top: .6875rem;
+    padding-bottom: .6875rem;
+}
+
+.pad-bt075 {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+}
+
+/*常用外边距*/
+.mar-t0125 {
+    /*4px*/
+    margin-top: .125rem;
+}
+
+.mar-t025 {
+    /*8px*/
+    margin-top: .25rem;
+}
+
+.mar-t0375 {
+    /*12px*/
+    margin-top: .375rem;
+}
+
+.mar-t05 {
+    /*16px*/
+    margin-top: .5rem;
+}
+
+.mar-t0625 {
+    /*20px*/
+    margin-top: .625rem;
+}
+
+.mar-t075 {
+    /*24px*/
+    margin-top: .75rem;
+}
+
+.mar-t0875 {
+    /*28px*/
+    margin-top: .875rem;
+}
+
+.mar-t1 {
+    /*32px*/
+    margin-top: 1rem;
+}

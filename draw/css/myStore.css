@@ -1,0 +1,450 @@
+.bg-store {
+    position: relative;
+    background-image: url("../img/store/sky-05.png");
+    width: 100%;
+    height: 22.1875rem;
+    background-size: 100% 100%;
+    overflow: hidden;
+}
+
+.bg-mstore {
+    position: relative;
+    background-image: url("../img/store/bj.png");
+    width: 100%;
+    height: 11.25rem;
+    background-size: 100% 100%;
+}
+
+.bg-earth {
+    position: absolute;
+    bottom: 0;
+    background-image: url("../img/store/earth.png");
+    background-position: top;
+    /*height: 47.15625rem;*/
+    overflow: hidden;
+    height: 6.7rem;
+    width: 100%;
+}
+
+.bg-home {
+    position: absolute;
+    bottom: 5rem;
+    height: 22.1875rem;
+    width: 100%;
+    background-size: 100% 100%;
+}
+
+.bg-home2 {
+    position: absolute;
+    top: 0;
+    height: 22.1875rem;
+    width: 100%;
+    background-size: 100% 100%;
+}
+
+#house1 {
+    position: absolute;
+    bottom: -5rem;
+    width: 100%;
+}
+
+#house2 {
+    position: absolute;
+    top: 27.1875rem;
+    width: 100%;
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+}
+
+.move1 {
+    animation: rotate1 3s linear;
+    -webkit-animation: rotate1 3s linear;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.move2 {
+    animation: rotate2 3s linear;
+    -webkit-animation: rotate2 3s linear;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.small {
+    animation: small 2s linear;
+    -webkit-animation: small 2s linear;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.big {
+    animation: big 2s linear;
+    -webkit-animation: big 2s linear;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.small2 {
+    animation: small2 2s linear;
+    -webkit-animation: small2 2s linear;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.big2 {
+    animation: big2 2s linear;
+    -webkit-animation: big2 2s linear;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.small3 {
+    animation: small3 2s linear;
+    -webkit-animation: small3 2s linear;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.big3 {
+    animation: big3 2s linear;
+    -webkit-animation: big3 2s linear;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes rotate1 {
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-180deg);
+        -webkit-transform: rotate(-180deg);
+    }
+}
+
+@-webkit-keyframes rotate2 {
+    0% {
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+}
+
+@-webkit-keyframes right {
+    0% {
+        height: 22.1875rem;
+    }
+    100% {
+        height: 9rem;
+    }
+}
+
+@-webkit-keyframes small {
+    0% {
+        height: 22.1875rem;
+    }
+    100% {
+        height: 11.25rem;
+    }
+}
+
+@-webkit-keyframes big {
+    0% {
+        height: 11.25rem;
+    }
+    100% {
+        height: 22.1875rem;
+    }
+}
+
+@-webkit-keyframes small2 {
+    0% {
+        width: 100%;
+    }
+    100% {
+        height: 3.75rem;
+        width: 3.75rem;
+        border-radius: 3.75rem;
+        transform: translate(0.9375rem, -4.5rem);
+        -webkit-transform: translate(0.9375rem, -4.5rem);
+    }
+}
+
+@-webkit-keyframes big2 {
+    0% {
+        height: 3.75rem;
+        width: 3.75rem;
+        border-radius: 3.75rem;
+        transform: translate(0.9375rem, -4.5rem);
+        -webkit-transform: translate(0.9375rem, -4.5rem);
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@-webkit-keyframes small3 {
+    0% {
+        width: 100%;
+        background-position: top;
+    }
+    100% {
+        height: 3.75rem;
+        width: 3.75rem;
+        border-radius: 3.75rem;
+        transform: translate(0.9375rem, -4.5rem);
+        -webkit-transform: translate(0.9375rem, -4.5rem);
+    }
+}
+
+@-webkit-keyframes big3 {
+    0% {
+        height: 3.75rem;
+        width: 3.75rem;
+        border-radius: 3.75rem;
+        transform: translate(0.9375rem, -4.5rem);
+        -webkit-transform: translate(0.9375rem, -4.5rem);
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+.bg-house {
+    width: 3.75rem;
+    height: 3.75rem;
+    background-size: 100% 100%;
+}
+
+.bg-house1 {
+    background-image: url("../img/store/house1.png");
+}
+
+.bg-house2 {
+    background-image: url("../img/store/house2.png");
+}
+
+.bg-house3 {
+    background-image: url("../img/store/house3.png");
+}
+
+.bg-housebj1 {
+    background-image: url("../img/store/housebj-01.png");
+}
+
+.bg-housebj2 {
+    background-image: url("../img/store/housebj-02.png");
+}
+
+.bg-housebj3 {
+    background-image: url("../img/store/housebj-03.png");
+}
+
+.bg-housebj4 {
+    background-image: url("../img/store/housebj-jiesuo04.png");
+}
+
+.bg-housebj5 {
+    background-image: url("../img/store/housebj-jiesuo05.png");
+}
+
+.bg-gradeprogress {
+    background-image: url("../img/store/grade-progress.png");
+    height: .625rem;
+    background-size: 100% 100%;
+    border-radius: 3.125rem;
+    position: relative;
+}
+
+.house-info {
+    padding-left: 0.9375rem;
+    padding-top: 2.75rem;;
+}
+
+.house-info2 {
+    padding-left: 5.2rem;
+    padding-top: 2.75rem;
+}
+
+.store-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 99;
+    text-align: center;
+    /*height: 3.4375rem;*/
+    /*line-height: 3.4375rem;*/
+}
+
+.icon-star {
+    background-image: url("../img/star.png");
+    background-size: 100% 100%;
+    width: 1.125rem;
+    height: 1.125rem;
+    margin-right: .1rem;
+}
+
+.icon-staff {
+    background-image: url("../img/shouyinyuan.png");
+    background-size: 100% 100%;
+    width: 1.0rem;
+    height: 1.125rem;
+}
+
+#grade-progress {
+    height: 100%;
+    border-radius: 3.125rem;
+}
+
+.grade-dialog {
+    position: absolute;
+    top: -1.1rem;
+    /*left: -.1rem;*/
+    background-image: url("../img/store/duihuakuang.png");
+    background-size: 100% 100%;
+    width: 5rem;
+    height: 1rem;
+    line-height: .9rem;
+    color: white;
+    font-size: .56rem;
+    text-align: center;
+}
+
+.dot {
+    width: .3125rem;
+    height: .3125rem;
+    border-radius: .3125rem;
+    position: relative;
+    top: -0.05rem;
+}
+
+.icon-new {
+    background-image: url("../img/new.png");
+    background-size: 100% 100%;
+    width: 1.875rem;
+    height: .8125rem;
+    position: absolute;
+    right: -1.6rem;
+    top: -0.4375rem;
+}
+
+.bj-yx1 {
+    background-image: url("../img/bj-yx1.png");
+    width: 100%;
+    /*height: 17.5rem;*/
+    height: 280px;
+    background-size: 100% 100%;
+    text-align: center;
+    color: white;
+}
+
+.bj-yx3 {
+    background-image: url("../img/bj-yx3.png");
+    width: 100%;
+    height: 12.8125rem;
+    background-size: 100% 100%;
+}
+
+.h2-5 {
+    height: 2.5rem;
+    line-height: 2.5rem
+}
+
+.btn {
+    border: 1px solid #5AC8FB;
+    border-radius: .125rem;
+    width: 5rem;
+    height: 1.875rem;
+    line-height: 1.875rem;
+    color: #5AC8FB;
+    font-size: .9375rem;
+    text-align: center;
+}
+
+.btn2 {
+    border: 1px solid #FFFFFF;
+    border-radius: .125rem;
+    width: 6.875rem;
+    height: 1.875rem;
+    line-height: 1.875rem;
+    color: #FFFFFF;
+    font-size: .875rem;
+    text-align: center;
+    position: relative;
+    top: -.25rem;
+}
+
+.icon-jdq {
+    background-image: url("../img/jdq.png");
+    background-size: 100% 100%;
+    width: 2.65625rem;
+    height: .9375rem;
+}
+
+.icon-jiantou {
+    background-image: url("../img/jiantou.png");
+    background-size: 100% 100%;
+    width: 1.875rem;
+    height: 1.25rem;
+}
+
+.circle {
+    width: .4375rem;
+    height: .4375rem;
+    border-radius: .4375rem;
+    background-color: #5AC8FB;
+    position: relative;
+    top: .28125rem;
+}
+
+.skill {
+    font-size: .75rem;
+    color: #80898D;
+    padding: 1.1875rem .9375rem 1.46875rem;
+}
+
+.shuju1 {
+    background-image: url("../img/shuju1.png");
+    background-size: 100% 100%;
+    /*width: 11.125rem;*/
+    /*height: 11.125rem;*/
+    width: 178px;
+    height: 178px;
+    overflow: auto;
+}
+
+.shuju2 {
+    background-image: url("../img/shuju2.png");
+    background-size: 100% 100%;
+    /*width: 11.125rem;*/
+    /*height: 11.125rem;*/
+    width: 178px;
+    height: 178px;
+}
+
+.shuju3 {
+    background-image: url("../img/shuju3.png");
+    background-size: 100% 100%;
+    /*width: 11.125rem;*/
+    /*height: 11.125rem;*/
+    width: 178px;
+    height: 178px;
+}
+
+#canvas {
+    position: absolute;
+    top: -6px;
+    left: -6px;
+}
+
+.mask {
+    top: 0;
+}
+
+#credit {
+    min-height: 2.25rem;
+}

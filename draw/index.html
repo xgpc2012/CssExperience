@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/myStore.css">
+    <title>银杏信用</title>
+</head>
+<body class="bg-f2">
+<div class="header box">
+    <div class="pad-l093 w-5 pad-bt068" onclick="UmsApi.page.forwardBizPageByRelativeUrl('index.html')">
+        <div class="icon-left"></div>
+    </div>
+    <div class="f1">
+        <p>银杏信用</p>
+    </div>
+    <div class="pad-r093 w-5">
+
+    </div>
+</div>
+<div class="bj-yx1">
+    <div class="main_content">
+        <div class="mar-t043 pad-lr31">
+            <div class="shuju2 h-center relative">
+                <div class="shuju3">
+                    <canvas id="canvas" width="190" height="190"></canvas>
+                    <div class="absolute w100 lh1">
+                        <div class="fz2-25 mar-t3" id="credit"></div>
+                        <div class="fz93 mar-t037">信用等级 <span id="creditLevel"></span></div>
+                        <div class="fz68 mar-t031">高于<span id="creditRank"></span>%银商用户</div>
+                        <div class="fz56 mar-t025">评估于<span id="dataDate"></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <div class="f1">
+                    <div class="btn2" onclick="goToCreditDetail()">了解银杏分
+                    </div>
+                </div>
+                <div class="">
+                    <div class="btn2" onclick="goToEnhance()">提升银杏分</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="mar-t0625 bg-w">
+    <div class="box h2-5 b-b b-e0 pad-lr093">
+        <div class="fz875 t-60 f1">精选服务</div>
+        <div class="t-a7 fz68">一大波特色服务，即将来袭</div>
+    </div>
+    <div class="box pad-lr093 t-60">
+        <div class="f1">
+            <div class="box mar-t14">
+                <div class="fz875 mar-r006">POS贷</div>
+                <div class="icon-jdq"></div>
+            </div>
+            <div class="t-5a">
+                <span class="fz75">最高</span>
+                <span class="fz1-3">100万</span>
+            </div>
+            <div class="fz75">
+                <!--信用积分越高，可申请额度和申请成功率越高-->
+                快速审批，安全便捷
+            </div>
+        </div>
+        <div class="pad-bt23">
+            <div class="btn" onclick="goToPosLoan()">一起钱进</div>
+        </div>
+    </div>
+</div>
+
+<div class="mar-t0625 bg-w">
+    <div class="box h2-5 b-b b-e0 pad-lr093">
+        <div class="fz875 t-60 f1">什么是银杏分？</div>
+    </div>
+    <div class="t-a7 fz75 pad-t0625 pad-lr093 pad-b0875">
+        <!--银联商务银杏信用是根据商户的个人和店铺信息完善度、经营概况、信用历史等经历的商户信用信用体系。通过大数据的计算，-->
+        <!--对店铺的信用等级作出综合评估。银杏分越高信用越好，您可享受更多的权益服务-->
+        银杏分是对商户信用状况进行综合评估的产品，综合考虑身份信息、经营概况、信用历史、风险概率及法人信息5个维度，根据商户经营大数据进行打分，评分范围为300到1000，分值越高信用越好，您可以享受更多的权益服务。
+    </div>
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="js/draw.js"></script>
+<script>
+
+    $(document).ready(function () {
+        draw(60.6);
+    })
+</script>
+</body>
+</html>

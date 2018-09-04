@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="../main/main.css">
+    <link rel="stylesheet" href="actionSheet.css">
+    <title>actionSheet</title>
+</head>
+<body>
+<p>仿照iOS端的h5 actionSheet</p>
+<div class="" onclick="showSheet();">打开actionSheet</div>
+<div class="sheetMask">
+    <div class="actionSheet showSheet bg-w">
+        <div class="optionBtn box b-b b-d4">
+            <div class="w-4" onclick="cancelSheet()">取消</div>
+            <div class="f1"></div>
+            <div class="w-4 t-e1" onclick="">确定</div>
+        </div>
+        <div id="accountList" class="pad-lr093">
+            <div class="bankItem box">
+                <div class="icon-account v-center mar-r093"></div>
+                <div>item1</div>
+            </div>
+            <div class="bankItem box">
+                <div class="icon-account v-center mar-r093"></div>
+                <div>item2</div>
+            </div>
+            <div class="bankItem box">
+                <div class="icon-account v-center mar-r093"></div>
+                <div>item3</div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    //actionSheet
+    function showSheet() {
+        $(".sheetMask").show();
+        $(".actionSheet").removeClass("hideSheet").addClass("showSheet");
+    }
+
+    function cancelSheet() {
+        setTimeout(function () {
+            $(".sheetMask").hide();
+        }, 500);
+        $(".actionSheet").removeClass("showSheet").addClass("hideSheet");
+    }
+</script>
+</body>
+</html>
